@@ -1,0 +1,8 @@
+adapter:
+  adapter_type: mongodb
+  pip_packages: ["pymongo", "certifi"]
+  config_class: mongodb_llama_stack.config.MongoDBIOConfig
+  module: mongodb_llama_stack
+api_dependencies: []
+optional_api_dependencies: []
+

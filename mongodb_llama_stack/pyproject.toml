@@ -1,0 +1,7 @@
+[project]
+name = "mongodb_llama_stack"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["llama-stack", "pydantic", "pymongo", "certifi"]

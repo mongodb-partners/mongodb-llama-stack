@@ -1,0 +1,73 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code / Editors
+.vscode/
+.idea/
+*.code-workspace
+
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.cache/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.pyre/
+.pytype/
+
+# Build / packaging
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Coverage / test reports
+.coverage
+.coverage.*
+coverage.xml
+nosetests.xml
+junit.xml
+htmlcov/
+
+# Logs
+*.log
+
+# dotenv / secrets
+.env
+.env.*
+!*.example
+*.pem
+*.key
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project-specific
+mongodb_llama_stack/.python-version
+mongodb_llama_stack/.env
+mongodb_llama_stack/**/__pycache__/
+mongodb_llama_stack/**/.ipynb_checkpoints/
+mongodb_llama_stack/**/dist/
+
+# Provider generated caches
+providers.d/**/__pycache__/
+
+# OS metadata in nested dirs
+**/.DS_Store
