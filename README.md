@@ -775,4 +775,7 @@ For information on how to contribute to this project, please see the [contributi
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **Apache License 2.0**.
+Portions of the code are derived from [Meta’s Llama Stack project](https://github.com/llamastack/llama-stack), licensed under the **MIT License**.
+
+See the full [LICENSE](./LICENSE) file for details.
