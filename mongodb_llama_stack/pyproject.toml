@@ -1,7 +1,179 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "mongodb_llama_stack"
 version = "0.1.0"
-description = "Add your description here"
+description = "MongoDB Atlas Vector Search provider for Llama Stack with vector, text, and hybrid search capabilities"
 readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "MongoDB Partners", email = "partners@mongodb.com"}
+]
+maintainers = [
+    {name = "MongoDB Partners", email = "partners@mongodb.com"}
+]
+keywords = [
+    "mongodb",
+    "vector-search", 
+    "llama-stack",
+    "ai",
+    "machine-learning",
+    "semantic-search",
+    "hybrid-search",
+    "atlas-search"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11", 
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 requires-python = ">=3.10"
-dependencies = ["llama-stack", "pydantic", "pymongo", "certifi"]
+dependencies = [
+    "llama-stack>=0.0.53",
+    "pydantic>=2.0.0", 
+    "pymongo>=4.5.0", 
+    "certifi>=2023.7.22",
+    "numpy>=1.24.0",
+    "packaging>=23.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-mock>=3.10.0",
+    "pytest-cov>=4.0.0"
+]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0", 
+    "mypy>=1.5.0",
+    "pre-commit>=3.0.0",
+    "isort>=5.12.0"
+]
+docs = [
+    "sphinx>=6.0.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "myst-parser>=2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/mongodb-partners/llama-stack-provider-mongodb"
+Documentation = "https://github.com/mongodb-partners/llama-stack-provider-mongodb#readme"
+Repository = "https://github.com/mongodb-partners/llama-stack-provider-mongodb"
+"Bug Tracker" = "https://github.com/mongodb-partners/llama-stack-provider-mongodb/issues"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+include = ["mongodb_llama_stack*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+mongodb_llama_stack = [
+    "*.yaml",
+    "*.yml", 
+    "providers.d/remote/vector_io/*.yaml",
+    "README.md"
+]
+
+# Black code formatting
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+# isort import sorting
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["mongodb_llama_stack"]
+
+# mypy type checking
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pymongo.*",
+    "certifi.*",
+    "numpy.*"
+]
+ignore_missing_imports = true
+
+# pytest configuration
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=mongodb_llama_stack",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml"
+]
+testpaths = ["tests"]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests requiring MongoDB connection",
+    "vector_search: Vector search functionality tests",
+    "text_search: Text search functionality tests", 
+    "hybrid_search: Hybrid search functionality tests",
+    "atlas: MongoDB Atlas specific tests",
+    "slow: Slow running tests"
+]
+
+# Coverage configuration
+[tool.coverage.run]
+source = ["mongodb_llama_stack"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "setup.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError", 
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]
