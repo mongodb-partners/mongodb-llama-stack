@@ -33,8 +33,8 @@ This approach is ideal for development as it doesn't require reinstallation afte
 #### 1. Clone and Set Up the Repository
 ```bash
 # Clone the repository
-git clone https://github.com/mongodb-partners/llama-stack-provider-mongodb.git
-cd llama-stack-provider-mongodb
+git clone https://github.com/mongodb-partners/mongodb-llama-stack.git
+cd mongodb-llama-stack
 
 # Create a virtual environment (optional but recommended)
 python -m venv venv
@@ -183,8 +183,8 @@ For a comprehensive build and test of all MongoDB Atlas search integrations:
 
 2. **Clone and Configure**
    ```bash
-   git clone https://github.com/mongodb-partners/llama-stack-provider-mongodb.git
-   cd llama-stack-provider-mongodb
+   git clone https://github.com/mongodb-partners/mongodb-llama-stack.git
+   cd mongodb-llama-stack
    python -m venv venv
    source venv/bin/activate
    pip install -r requirements.txt
@@ -292,8 +292,8 @@ This section covers how to build, test, and validate the MongoDB provider functi
 
 ```bash
 # Clone the repository (if not done already)
-git clone https://github.com/mongodb-partners/llama-stack-provider-mongodb.git
-cd llama-stack-provider-mongodb
+git clone https://github.com/mongodb-partners/mongodb-llama-stack.git
+cd mongodb-llama-stack
 
 # Create and activate a virtual environment (recommended)
 python -m venv venv
@@ -679,8 +679,8 @@ This section provides a step-by-step guide to set up, build, test, and run the M
 
 ```bash
 # Clone the repository
-git clone https://github.com/mongodb-partners/llama-stack-provider-mongodb.git
-cd llama-stack-provider-mongodb
+git clone https://github.com/mongodb-partners/mongodb-llama-stack.git
+cd mongodb-llama-stack
 
 # Create a virtual environment
 python -m venv venv
